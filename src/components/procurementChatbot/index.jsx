@@ -147,6 +147,7 @@ const JalJeevanBot = ({
       setMovements([]);
       fetchData(); // Fetch data on component mount
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [submit]);
 
   const colorForMovement = (movement) => {
