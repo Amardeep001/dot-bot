@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect } from "react";
 import bharatLogo from "../../assets/images/kpmg.jpg";
 import {
@@ -147,7 +148,6 @@ const JalJeevanBot = ({
       setMovements([]);
       fetchData(); // Fetch data on component mount
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [submit]);
 
   const colorForMovement = (movement) => {
