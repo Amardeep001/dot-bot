@@ -52,10 +52,9 @@ jobs:
         run: unzip release.zip
 
       - name: Deploy to Azure Web App
-        id: deploy-to-webapp
         uses: azure/webapps-deploy@v2
         with:
-          app-name: 'dotwebapp'
-          slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_1564DEA97C304E7392544B762EA5B291 }}
-          package: .
+         app-name: 'dotwebapp'
+         publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE }}
+         package: './release.zip'
+         run-from-package: true
