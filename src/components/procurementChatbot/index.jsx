@@ -41,7 +41,7 @@ const JalJeevanBot = ({
 }) => {
   const [points, setPoints] = useState([]);
   const [movements, setMovements] = useState([]);
-  const [currentIndex, setCurrentIndex] = useState(0);
+  // const [currentIndex, setCurrentIndex] = useState(0);
 
   const fetchData = async () => {
     try {
@@ -130,7 +130,7 @@ const JalJeevanBot = ({
 
         setPoints(currentPoints);
         setMovements(currentMovements);
-        setCurrentIndex(index);
+        // setCurrentIndex(index);
 
         index++;
       }, 3000); // Update every 3 seconds

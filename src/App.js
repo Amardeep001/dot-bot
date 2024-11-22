@@ -1,14 +1,12 @@
 import React, { useState } from "react";
 import ProcurementChatbot from "./components/procurementChatbot";
 import bharatLogo from "../src/assets/images/kpmg.jpg";
-import waterDropLogo from "../src/assets/images/waterdrop.png";
 import { DemoContainer, DemoItem } from "@mui/x-date-pickers/internals/demo";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { DateTimePicker } from "@mui/x-date-pickers/DateTimePicker";
 import dayjs from "dayjs";
 import utc from "dayjs/plugin/utc";
-import { API_URL } from "./utils/constants";
 
 // Extend dayjs with the UTC plugin
 dayjs.extend(utc);
@@ -20,8 +18,6 @@ function App() {
   const [startTime, setStartTime] = useState(null);
   const [endValue, setEndValue] = React.useState(null);
   const [endTime, setEndTime] = useState(null);
-  const [base64Html, setBase64Html] = useState("");
-  const [loading, setLoading] = useState(false);
   const [submit, setSubmit] = useState(false);
 
   // console.log(startTime, "line17");
