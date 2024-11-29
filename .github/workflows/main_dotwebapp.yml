@@ -30,7 +30,7 @@ jobs:
          
 
       - name: Zip artifact for deployment
-        run: zip -r release.zip ./* -x "*.git*" "node_modules/*"
+        run: zip -r release.zip ./build/* -x "*.git*" "node_modules/*"
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v3
@@ -59,5 +59,5 @@ jobs:
         with:
          app-name: 'dotwebapp'
          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_1564DEA97C304E7392544B762EA5B291 }}
-         package: './release.zip'
+         package: './build'
          run-from-package: true
