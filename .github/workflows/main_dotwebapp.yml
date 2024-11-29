@@ -20,7 +20,7 @@ jobs:
 
       - name: Install Dependencies
         run: |
-            npm install --forcenpm 
+            npm install --force 
             npm install --save-dev serve
 
       - name: Build and Test Application
