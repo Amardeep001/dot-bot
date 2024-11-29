@@ -24,6 +24,7 @@ jobs:
       - name: Build and Test Application
         run: |
           CI=false npm run build
+          npm install -g serve
          
 
       - name: Zip artifact for deployment
