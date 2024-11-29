@@ -19,12 +19,13 @@ jobs:
           node-version: '20'
 
       - name: Install Dependencies
-        run: npm install --force
+        run: |
+            npm install --forcenpm 
+            npm install --save-dev serve
 
       - name: Build and Test Application
         run: |
           CI=false npm run build
-          npm install -g serve
           npm run serve
          
 
