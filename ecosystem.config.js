@@ -5,11 +5,9 @@ module.exports = {
       script: "npm",
       args: "start",
       env: {
-        PORT: 8080,
+        PORT: 3007,
         NODE_ENV: "development",
       },
     },
   ],
 };
-
-// 3007
