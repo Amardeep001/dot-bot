@@ -53,7 +53,7 @@ jobs:
       - name: Unzip artifact for deployment
         run: |
          unzip release.zip -d ./temp
-         mv ./temp/* ./build
+         mv ./temp/build/* ./build
 
       - name: List contents of build directory
         run: ls -l ./build
