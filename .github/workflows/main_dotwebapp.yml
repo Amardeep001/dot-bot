@@ -51,7 +51,13 @@ jobs:
       - name: Create build directory
         run: mkdir -p ./build
       - name: Unzip artifact for deployment
-        run: unzip release.zip -d ./build
+        run: |
+         unzip release.zip -d ./temp
+         mv ./temp/* ./build
+
+      - name: List contents of build directory
+        run: ls -l ./build
+     
 
       - name: Deploy to Azure Web App
         uses: azure/webapps-deploy@v2
