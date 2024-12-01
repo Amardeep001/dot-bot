@@ -27,8 +27,6 @@ jobs:
         run: |
           CI=false npm run build
         
-         
-
       - name: Zip artifact for deployment
         run: zip -r release.zip ./build/* -x "*.git*" "node_modules/*"
 
@@ -57,7 +55,6 @@ jobs:
       - name: Deploy to Azure Web App
         uses: azure/webapps-deploy@v2
         with:
-         app-name: 'dotwebapp'
-         publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_1564DEA97C304E7392544B762EA5B291 }}
-         package: './build/build/'
-        
+          app-name: 'dotwebapp'
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_1564DEA97C304E7392544B762EA5B291 }}
+          package: './build'
