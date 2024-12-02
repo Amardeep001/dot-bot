@@ -52,8 +52,8 @@ jobs:
         run: mkdir -p ./build
       - name: Unzip artifact for deployment
         run: |
-         unzip release.zip -d ./temp
-         mv ./temp/build/* ./build
+         unzip release.zip -d ./wwwroot
+         
 
       - name: List contents of build directory
         run: ls -l ./build
@@ -64,5 +64,5 @@ jobs:
         with:
           app-name: 'dotwebapp'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_1564DEA97C304E7392544B762EA5B291 }}
-          package: './release.zip'
-          run-from-package: true
+          package: './wwwroot'
+        
