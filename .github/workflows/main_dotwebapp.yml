@@ -22,7 +22,9 @@ jobs:
 
       # Install dependencies
       - name: Install Dependencies
-        run: npm install --force
+        run: |
+          npm install --force
+          npm install serve --force
 
       # Build the React application
       - name: Build React App
@@ -56,7 +58,7 @@ jobs:
 
       # Unzip the artifact to prepare for deployment
       - name: Unzip Artifact
-        run: unzip release.zip -d build
+        run: unzip release.zip -d ./wwwroot
 
       # Deploy to Azure Web App
       - name: Deploy to Azure Web App
@@ -64,8 +66,8 @@ jobs:
         with:
           app-name: 'dotwebapp'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_1564DEA97C304E7392544B762EA5B291 }}
-          package: './build'
+          package: './wwwroot'
 
       # Optional: Verify deployment
       - name: Check Deployed Directory
-        run: ls -l ./build
+        run: ls -l ./wwwroot
