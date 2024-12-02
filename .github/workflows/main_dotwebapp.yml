@@ -52,7 +52,8 @@ jobs:
         run: mkdir -p ./build
       - name: Unzip artifact for deployment
         run: |
-         unzip release.zip -d ./wwwroot
+         unzip release.zip -d ./tmp
+         mv ./temp/build/* ./wwwroot
          
 
       - name: List contents of build directory
