@@ -49,10 +49,10 @@ jobs:
         with:
           name: node-app
       - name: Create build directory
-        run: mkdir -p ./build11
+        run: mkdir -p ./build
       - name: Unzip artifact for deployment
         run: |
-         unzip release.zip -d .
+         unzip release.zip -d ./build/
          
 
       - name: List contents of build directory
