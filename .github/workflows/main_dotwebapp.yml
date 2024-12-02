@@ -64,3 +64,11 @@ jobs:
           app-name: 'dotwebapp'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_1564DEA97C304E7392544B762EA5B291 }}
           package: './wwwroot'
+      - name: Set startup command
+        uses: azure/appservice-settings@v2
+        with:
+         app-name: 'dotwebapp'
+         publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_1564DEA97C304E7392544B762EA5B291 }}
+         app-settings: |
+          WEBSITE_NODE_DEFAULT_VERSION=20
+          STARTUP_COMMAND=npx serve -s .     
