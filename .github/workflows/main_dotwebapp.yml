@@ -64,5 +64,5 @@ jobs:
         with:
           app-name: 'dotwebapp'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_1564DEA97C304E7392544B762EA5B291 }}
-          package: './build'
+          package: './release.zip'
           run-from-package: true
