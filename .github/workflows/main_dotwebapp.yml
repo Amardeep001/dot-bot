@@ -52,7 +52,7 @@ jobs:
         run: mkdir -p ./build11
       - name: Unzip artifact for deployment
         run: |
-         unzip release.zip -d ./
+         unzip release.zip -d .
          
 
       - name: List contents of build directory
