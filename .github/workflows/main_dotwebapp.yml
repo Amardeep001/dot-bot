@@ -52,11 +52,11 @@ jobs:
         run: mkdir -p ./build
       - name: Unzip artifact for deployment
         run: |
-         unzip release.zip -d ./build/
+         unzip release.zip -d ./wwwroot
          
 
       - name: List contents of build directory
-        run: ls -l ./build
+        run: ls -l ./wwwroot
      
 
       - name: Deploy to Azure Web App
@@ -64,5 +64,5 @@ jobs:
         with:
           app-name: 'dotwebapp'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_1564DEA97C304E7392544B762EA5B291 }}
-          package: './build'
+          package: './wwwroot'
         
