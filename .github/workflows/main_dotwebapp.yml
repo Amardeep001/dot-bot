@@ -30,7 +30,9 @@ jobs:
 
       # Prepare the artifact for deployment
       - name: Zip the Build Directory
-        run: zip -r release.zip ./build
+        run: |
+          cd build
+          zip -r ../release.zip ./*
 
       # Upload the build artifact for the deployment job
       - name: Upload Artifact
