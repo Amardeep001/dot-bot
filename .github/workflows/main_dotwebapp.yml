@@ -28,7 +28,9 @@ jobs:
           CI=false npm run build
 
       - name: Zip artifact for deployment
-        run: zip -r release.zip ./build/* -x "*.git*" "node_modules/*"
+        run: |
+          cd build
+          zip -r ../release.zip ./*
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v3
