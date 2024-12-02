@@ -58,17 +58,6 @@ jobs:
       - name: List contents of wwwroot directory
         run: ls -l ./wwwroot
 
-
-      - name: Set startup command
-        uses: Azure/appservice-settings@v1
-        with:
-          app-name: 'dotwebapp'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE }}
-          app-settings: |
-            WEBSITE_NODE_DEFAULT_VERSION=20
-            STARTUP_COMMAND=npx serve -s .
-
-
       - name: Deploy to Azure Web App
         uses: azure/webapps-deploy@v2
         with:
