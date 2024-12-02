@@ -20,13 +20,13 @@ jobs:
 
       - name: Install Dependencies
         run: |
-            npm install --force 
-            npm install serve --force
-
+          npm install --force 
+          npm install serve --force
+          
       - name: Build and Test Application
         run: |
           CI=false npm run build
-        
+
       - name: Zip artifact for deployment
         run: zip -r release.zip ./build/* -x "*.git*" "node_modules/*"
 
@@ -48,22 +48,17 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: node-app
-      - name: Create build directory
-        run: mkdir -p ./build
+
       - name: Unzip artifact for deployment
         run: |
-         unzip release.zip -d ./tmp
-         mv ./tmp/* ./build
-         
+          unzip release.zip -d ./wwwroot
 
-      - name: List contents of build directory
-        run: ls -l ./build
-     
+      - name: List contents of wwwroot directory
+        run: ls -l ./wwwroot
 
       - name: Deploy to Azure Web App
         uses: azure/webapps-deploy@v2
         with:
           app-name: 'dotwebapp'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_1564DEA97C304E7392544B762EA5B291 }}
-          package: './build'
-        
+          package: './wwwroot'
