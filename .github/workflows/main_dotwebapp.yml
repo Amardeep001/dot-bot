@@ -49,15 +49,15 @@ jobs:
         with:
           name: node-app
       - name: Create build directory
-        run: mkdir -p ./wwwroot
+        run: mkdir -p ./build
       - name: Unzip artifact for deployment
         run: |
-         unzip release.zip -d ./tmp
-         mv ./tmp/build/* ./wwwroot
+         unzip release.zip -d ./build
+         mv ./tmp/build/* ./build
          
 
       - name: List contents of build directory
-        run: ls -l ./wwwroot
+        run: ls -l ./build
      
 
       - name: Deploy to Azure Web App
@@ -65,5 +65,5 @@ jobs:
         with:
           app-name: 'dotwebapp'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_1564DEA97C304E7392544B762EA5B291 }}
-          package: './wwwroot'
+          package: './build'
         
