@@ -53,7 +53,7 @@ jobs:
       - name: Unzip artifact for deployment
         run: |
          unzip release.zip -d ./tmp
-         mv ./temp/* ./wwwroot
+         mv ./tmp/build/* ./wwwroot
          
 
       - name: List contents of build directory
