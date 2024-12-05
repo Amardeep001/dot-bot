@@ -46,7 +46,7 @@ const JalJeevanBot = ({
   const fetchData = async () => {
     try {
       const response = await fetch(
-        "http://20.244.107.209:8005/generate_maps/",
+        "https://backend.farmpulsetestings.org/dot/generate_maps/",
         {
           method: "POST",
           headers: {
